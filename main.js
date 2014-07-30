@@ -35,10 +35,12 @@ function updateTurn() {
 
 function distribute(clickedSlot, pebbles) {
 	this.clickedSlot = clickedSlot;
+	this.clickedSlot = parseInt(clickedSlot);
 	this.pebbles = pebbles;
+	this.pebbles = parseInt(pebbles);
 	currentSlot = slots.indexOf(clickedSlot);
 	
-	if (validateMove(clickedSlot, pebbles) === true) {
+	if (validateMove(parseInt(clickedSlot), parseInt(pebbles)) === true) {
 	
 		// Pick up all the pebbles.
 		document.getElementById(clickedSlot).value = 0;
@@ -75,20 +77,30 @@ function distribute(clickedSlot, pebbles) {
 }
 
 function validateMove(clickedSlot, pebbles) {
-	if (playerTurn === 1 && pebbles !== 0 && (currentSlot === 0 || currentSlot === 1 || currentSlot === 2 || currentSlot === 3 || currentSlot === 4 || currentSlot === 5)) {
-		return true;
+
+	if (playerTurn === 1 && (currentSlot === 0 || currentSlot === 1 || currentSlot === 2 || currentSlot === 3 || currentSlot === 4 || currentSlot === 5)) {
+		if (pebbles === 0) {
+			alert("There are no pebbles there!");
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
-	else if (playerTurn === 2 && pebbles !== 0 && (currentSlot === 7 || currentSlot === 8 || currentSlot === 9 || currentSlot === 10 || currentSlot === 11 || currentSlot === 12)) {
-		return true;
+	else if (playerTurn === 2 && (currentSlot === 7 || currentSlot === 8 || currentSlot === 9 || currentSlot === 10 || currentSlot === 11 || currentSlot === 12)) {
+		if (pebbles === 0) {
+			alert("There are no pebbles there!");
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
 	else {
-		alert("Invalid Move");
+		alert("It's not your turn!");
 		return false;
 	}
-	if (pebbles === 0) {
-		alert("There are no pebbles there!");
-		return false;
-	}
+
 }
 
 function total() {
