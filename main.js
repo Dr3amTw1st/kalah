@@ -35,10 +35,11 @@ function updateTurn() {
 
 function distribute(clickedSlot, pebbles) {
 	this.clickedSlot = clickedSlot;
-	this.clickedSlot = parseInt(clickedSlot);
+	this.clickedSlot = slots.indexOf(clickedSlot);
 	this.pebbles = pebbles;
-	this.pebbles = parseInt(pebbles);
 	currentSlot = slots.indexOf(clickedSlot);
+	
+	alert("ClickedSlot: " + parseInt(clickedSlot));
 	
 	if (validateMove(parseInt(clickedSlot), parseInt(pebbles)) === true) {
 	
@@ -101,23 +102,4 @@ function validateMove(clickedSlot, pebbles) {
 		return false;
 	}
 
-}
-
-function total() {
-	var total=0;
-	total += a;
-	total += b;
-	total += c;
-	total += d;
-	total += e;
-	total += f;
-	total += g;
-	total += h;
-	total += i;
-	total += j;
-	total += k;
-	total += l;
-	total += p1;
-	total += p2;
-	document.getElementById("totalBox").value = total;
 }
