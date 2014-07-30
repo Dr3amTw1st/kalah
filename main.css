@@ -1,0 +1,20 @@
+/* For a larger board with borders... I don't really like it.
+.gameBoard {
+	border-collapse: collapse;
+	border-spacing: 0;
+	table-layout: fixed;
+} */
+
+.gameBoard td {
+	padding: 0px;
+}
+
+.rowBtn {
+	width: 50px;
+	height: 50px;
+}
+
+.scoreBtn {
+	width: 50px;
+	height: 100px;
+}
