@@ -37,11 +37,10 @@ function distribute(clickedSlot, pebbles) {
 	this.clickedSlot = clickedSlot;
 	this.clickedSlot = slots.indexOf(clickedSlot);
 	this.pebbles = pebbles;
+	pebbles = parseInt(pebbles);
 	currentSlot = slots.indexOf(clickedSlot);
-	
-	alert("ClickedSlot: " + parseInt(clickedSlot));
-	
-	if (validateMove(parseInt(clickedSlot), parseInt(pebbles)) === true) {
+		
+	if (validateMove(clickedSlot, pebbles) === true) {
 	
 		// Pick up all the pebbles.
 		document.getElementById(clickedSlot).value = 0;
@@ -55,7 +54,7 @@ function distribute(clickedSlot, pebbles) {
 				currentSlot = 0;
 			}
 			
-			// This part right here is kind of complex... basically just place a pebble in the current slot.
+			// This part is kind of complex... basically just place a pebble in the current slot.
 			document.getElementById(slots[currentSlot]).value = parseInt(document.getElementById(slots[currentSlot]).value) + 1;
 			
 			// Get the last slot (used to check for captures and extra turns)
