@@ -5,30 +5,36 @@
   <title>Kalah</title>
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<script src="main.js"></script>
+	
 </head>
 
 <body onload="initialize();">
-	<table class="gameBoard">
-		<tr>
-			<td rowspan="2"><input class="scoreBtn" id="p2" type="button" value="BrokenP2"></th>
-			<td><input class="rowBtn" id="l" type="button" value="Broken1" onclick="distribute('l', this.value);"></td>
-			<td><input class="rowBtn" id="k" type="button" value="Broken2" onclick="distribute('k', this.value);"></td>
-			<td><input class="rowBtn" id="j" type="button" value="Broken3" onclick="distribute('j', this.value);"></td>
-			<td><input class="rowBtn" id="i" type="button" value="Broken4" onclick="distribute('i', this.value);"></td>
-			<td><input class="rowBtn" id="h" type="button" value="Broken5" onclick="distribute('h', this.value);"></td>
-			<td><input class="rowBtn" id="g" type="button" value="Broken6" onclick="distribute('g', this.value);"></td>
-			<td rowspan="2"><input class="scoreBtn" id="p1" type="button" value="BrokenP1"></th>
-		</tr>
-		<tr>
-			<td><input class="rowBtn" id="a" type="button" value="Broken7" onclick="distribute('a', this.value);"></td>
-			<td><input class="rowBtn" id="b" type="button" value="Broken8" onclick="distribute('b', this.value);"></td>
-			<td><input class="rowBtn" id="c" type="button" value="Broken9" onclick="distribute('c', this.value);"></td>
-			<td><input class="rowBtn" id="d" type="button" value="Broken10" onclick="distribute('d', this.value);"></td>
-			<td><input class="rowBtn" id="e" type="button" value="Broken11" onclick="distribute('e', this.value);"></td>
-			<td><input class="rowBtn" id="f" type="button" value="Broken12" onclick="distribute('f', this.value);"></td>
-		</tr>
-	</table>
-	<div id="playerTurn"></div>
+		<table class="gameBoard">
+			<tr>
+				<td rowspan="2"><input class="scoreBtn" id="p2" type="button" value="BrokenP2"></th>
+				<td><input class="rowBtn" id="l" type="button" value="Broken1" onclick="distribute('l', this.value);"></td>
+				<td><input class="rowBtn" id="k" type="button" value="Broken2" onclick="distribute('k', this.value);"></td>
+				<td><input class="rowBtn" id="j" type="button" value="Broken3" onclick="distribute('j', this.value);"></td>
+				<td><input class="rowBtn" id="i" type="button" value="Broken4" onclick="distribute('i', this.value);"></td>
+				<td><input class="rowBtn" id="h" type="button" value="Broken5" onclick="distribute('h', this.value);"></td>
+				<td><input class="rowBtn" id="g" type="button" value="Broken6" onclick="distribute('g', this.value);"></td>
+				<td rowspan="2"><input class="scoreBtn" id="p1" type="button" value="BrokenP1"></th>
+			</tr>
+			<tr>
+				<td><input class="rowBtn" id="a" type="button" value="Broken7" onclick="distribute('a', this.value);"></td>
+				<td><input class="rowBtn" id="b" type="button" value="Broken8" onclick="distribute('b', this.value);"></td>
+				<td><input class="rowBtn" id="c" type="button" value="Broken9" onclick="distribute('c', this.value);"></td>
+				<td><input class="rowBtn" id="d" type="button" value="Broken10" onclick="distribute('d', this.value);"></td>
+				<td><input class="rowBtn" id="e" type="button" value="Broken11" onclick="distribute('e', this.value);"></td>
+				<td><input class="rowBtn" id="f" type="button" value="Broken12" onclick="distribute('f', this.value);"></td>
+			</tr>
+		</table>
+		<div id="playerTurn">If you can read this, something is broken or you have JavaScript turned off.</div>
+		
+	<div class="wrapper">
+		<div class="turnIndicator" id="p1Turn">1</div>
+		<div class="turnIndicator" id="p2Turn">2</div>
+	</div>
 </body>
 
 </html>
