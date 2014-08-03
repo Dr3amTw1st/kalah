@@ -4,7 +4,14 @@ var playerTurn = 1; // There are plans to make this random.
 
 function initialize() {
 	a=4, b=4, c=4, d=4, e=4, f=4, p1=0, g=4, h=4, i=4, j=4, k=4, l=4, p2=0;
-	document.getElementById("playerTurn").innerHTML = "It is player " + playerTurn + "'s turn.";
+	//document.getElementById("playerTurn").innerHTML = "It is player " + playerTurn + "'s turn.";
+	
+	if (playerTurn === 1) {
+		document.getElementById("p1Turn").style.color = "#ffcc00";
+	}
+	else {
+		document.getElementById("p2Turn").style.color = "#ffcc00";
+	}
 	
 	document.getElementById("a").value = a;
 	document.getElementById("b").value = b;
@@ -30,7 +37,16 @@ function updateTurn() {
 		playerTurn = 1;
 	}
 	
-	document.getElementById("playerTurn").innerHTML = "It is player " + playerTurn + "'s turn.";
+	//document.getElementById("playerTurn").innerHTML = "It is player " + playerTurn + "'s turn.";
+	
+	if (playerTurn === 1) {
+		document.getElementById("p1Turn").style.color = "#ffcc00";
+		document.getElementById("p2Turn").style.color = "#ccc";
+	}
+	else {
+		document.getElementById("p2Turn").style.color = "#ffcc00";
+		document.getElementById("p1Turn").style.color = "#ccc";
+	}
 }
 
 function distribute(clickedSlot, pebbles) {
