@@ -78,7 +78,7 @@ function distribute(clickedSlot, pebbles) {
 		
 		// Captures?
 		if (parseInt(document.getElementById(slots[lastSlot]).value) === 1 && checkSlotOwner() && checkAdjacent()) {
-			//alert("Capture!");
+			alert("Capture!");
 			opponentPebbles = document.getElementById(slots[adjacent]).value;
 			document.getElementById(slots[lastSlot]).value = 0;
 			document.getElementById(slots[adjacent]).value = 0;
@@ -102,6 +102,22 @@ function distribute(clickedSlot, pebbles) {
 		}
 		else {
 			updateTurn();
+		}
+		
+		// Check if the game is over
+		if (checkEndGame() === true) {
+			if (parseInt(document.getElementById(slots[6]).value) > parseInt(document.getElementById(slots[13]).value)) {
+				alert("Congratulations, Player 1! You win!");
+			}
+			else if (parseInt(document.getElementById(slots[13]).value) > parseInt(document.getElementById(slots[6]).value)) {
+				alert("Congratulations, Player 2! You win!");
+			}
+			else if (parseInt(document.getElementById(slots[6]).value) === parseInt(document.getElementById(slots[13]).value)) {
+				alert("It's a tie!");
+			}
+			else {
+				// Do nothing
+			}
 		}
 	}
 }
@@ -188,5 +204,20 @@ function checkSlotOwner() {
 	}
 	else {
 		return false;
+	}
+}
+
+function checkEndGame() {
+	for (x = 0; x <= 13; x++) {
+		if (parseInt(document.getElementById(slots[x]).value) === 0) {
+			// Keep going
+		}
+		else {
+			return false
+		}
+	}
+	
+	if (parseInt(document.getElementById(slots[x]).value)) {
+		return true;
 	}
 }
