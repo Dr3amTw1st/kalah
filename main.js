@@ -54,7 +54,23 @@ function distribute(clickedSlot, pebbles) {
 	currentSlot = slots.indexOf(clickedSlot);
 		
 	if (validateMove(clickedSlot, pebbles) === true) {
-	
+		
+		// Check if a move can be made
+		if (checkEndGame() === true) {
+			if (parseInt(document.getElementById(slots[6]).value) > parseInt(document.getElementById(slots[13]).value)) {
+				alert("Congratulations, Player 1! You win!");
+			}
+			else if (parseInt(document.getElementById(slots[13]).value) > parseInt(document.getElementById(slots[6]).value)) {
+				alert("Congratulations, Player 2! You win!");
+			}
+			else if (parseInt(document.getElementById(slots[6]).value) === parseInt(document.getElementById(slots[13]).value)) {
+				alert("It's a tie!");
+			}
+			else {
+				// Do nothing
+			}
+		}
+		
 		// Pick up all the pebbles.
 		document.getElementById(clickedSlot).value = 0;
 
@@ -102,22 +118,6 @@ function distribute(clickedSlot, pebbles) {
 		}
 		else {
 			updateTurn();
-		}
-		
-		// Check if the game is over
-		if (checkEndGame() === true) {
-			if (parseInt(document.getElementById(slots[6]).value) > parseInt(document.getElementById(slots[13]).value)) {
-				alert("Congratulations, Player 1! You win!");
-			}
-			else if (parseInt(document.getElementById(slots[13]).value) > parseInt(document.getElementById(slots[6]).value)) {
-				alert("Congratulations, Player 2! You win!");
-			}
-			else if (parseInt(document.getElementById(slots[6]).value) === parseInt(document.getElementById(slots[13]).value)) {
-				alert("It's a tie!");
-			}
-			else {
-				// Do nothing
-			}
 		}
 	}
 }
@@ -208,16 +208,55 @@ function checkSlotOwner() {
 }
 
 function checkEndGame() {
-	for (x = 0; x <= 13; x++) {
-		if (parseInt(document.getElementById(slots[x]).value) === 0) {
-			// Keep going
-		}
-		else {
-			return false
+	var done = false;
+	
+	if (playerTurn === 1) {
+		if (parseInt(document.getElementById(slots[0]).value) === 0 && parseInt(document.getElementById(slots[1]).value) === 0 && parseInt(document.getElementById(slots[2]).value) === 0 && parseInt(document.getElementById(slots[3]).value) === 0 && parseInt(document.getElementById(slots[4]).value) === 0 && parseInt(document.getElementById(slots[5]).value) === 0) {
+			done = true;
 		}
 	}
+	else if (playerTurn === 2) {
+		if (parseInt(document.getElementById(slots[7]).value) === 0 && parseInt(document.getElementById(slots[8]).value) === 0 && parseInt(document.getElementById(slots[9]).value) === 0 && parseInt(document.getElementById(slots[10]).value) === 0 && parseInt(document.getElementById(slots[11]).value) === 0 && parseInt(document.getElementById(slots[12]).value) === 0) {
+			done = true;
+		}
+	}
+	else {
+		done = false;
+	}
 	
-	if (parseInt(document.getElementById(slots[x]).value)) {
-		return true;
+	if (done === true) {
+		alert("No possible moves, the game is over.");
+		
+		a = parseInt(document.getElementById("a").value);
+		b = parseInt(document.getElementById("b").value);
+		c = parseInt(document.getElementById("c").value);
+		d = parseInt(document.getElementById("d").value);
+		e = parseInt(document.getElementById("e").value);
+		f = parseInt(document.getElementById("f").value);
+		
+		g = parseInt(document.getElementById("g").value);
+		h = parseInt(document.getElementById("h").value);
+		i = parseInt(document.getElementById("i").value);
+		j = parseInt(document.getElementById("j").value);
+		k = parseInt(document.getElementById("k").value);
+		l = parseInt(document.getElementById("l").value);
+		
+		// Clean the remaining pebbles and put them into the correct scoring pits
+		document.getElementById("p1").value = parseInt(document.getElementById(slots[6]).value) + a + b + c + d + e + f;
+		document.getElementById("p2").value = parseInt(document.getElementById(slots[13]).value) + g + h + i + j + k + l;
+		
+		document.getElementById("a").value = 0;
+		document.getElementById("b").value = 0;
+		document.getElementById("c").value = 0;
+		document.getElementById("d").value = 0;
+		document.getElementById("e").value = 0;
+		document.getElementById("f").value = 0;
+		
+		document.getElementById("g").value = 0;
+		document.getElementById("h").value = 0;
+		document.getElementById("i").value = 0;
+		document.getElementById("j").value = 0;
+		document.getElementById("k").value = 0;
+		document.getElementById("l").value = 0;
 	}
 }
