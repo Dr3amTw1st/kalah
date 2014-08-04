@@ -17,7 +17,7 @@ body {
 
 .rowBtn {
 	font-size: 35px;
-	background-color: #ffcc00;
+	background: -webkit-linear-gradient(#ffcc00, #ffdd00);
 	border: 1px solid #ffcc00;
 	-webkit-border-radius:10px;
 	-webkit-box-shadow:inset 1px 1px 1px #ffffff;
@@ -28,16 +28,11 @@ body {
 
 .rowBtn:active {
 	border: none;
-	outline: 0;
 }
 
-/* An attempt to remove the blue border around the rowBtn's, failed. */
-/*
-.rowBtn:visited {
-	border: none;
-	outline: 0 !important;
+.rowBtn:focus {
+	outline: 0;
 }
-*/
 
 .scoreBtn {
 	font-size: 35px;
@@ -47,6 +42,10 @@ body {
 	-webkit-box-shadow:inset 1px 1px 1px #ffffff;
 	width: 75px;
 	height: 150px;
+}
+
+.scoreBtn:focus {
+	outline: 0;
 }
 
 .wrapper {
