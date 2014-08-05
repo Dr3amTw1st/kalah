@@ -52,24 +52,8 @@ function distribute(clickedSlot, pebbles) {
 	this.pebbles = pebbles;
 	pebbles = parseInt(pebbles);
 	currentSlot = slots.indexOf(clickedSlot);
-		
+	
 	if (validateMove(clickedSlot, pebbles) === true) {
-		
-		// Check if a move can be made
-		if (checkEndGame() === true) {
-			if (parseInt(document.getElementById(slots[6]).value) > parseInt(document.getElementById(slots[13]).value)) {
-				alert("Congratulations, Player 1! You win!");
-			}
-			else if (parseInt(document.getElementById(slots[13]).value) > parseInt(document.getElementById(slots[6]).value)) {
-				alert("Congratulations, Player 2! You win!");
-			}
-			else if (parseInt(document.getElementById(slots[6]).value) === parseInt(document.getElementById(slots[13]).value)) {
-				alert("It's a tie!");
-			}
-			else {
-				// Do nothing
-			}
-		}
 		
 		// Pick up all the pebbles.
 		document.getElementById(clickedSlot).value = 0;
@@ -119,6 +103,8 @@ function distribute(clickedSlot, pebbles) {
 		else {
 			updateTurn();
 		}
+		
+		checkEndGame();
 	}
 }
 
@@ -225,7 +211,7 @@ function checkEndGame() {
 	}
 	
 	if (done === true) {
-		alert("No possible moves, the game is over.");
+		alert("One side of the board is empty, the game is over.");
 		
 		a = parseInt(document.getElementById("a").value);
 		b = parseInt(document.getElementById("b").value);
@@ -258,5 +244,18 @@ function checkEndGame() {
 		document.getElementById("j").value = 0;
 		document.getElementById("k").value = 0;
 		document.getElementById("l").value = 0;
+		
+		if (parseInt(document.getElementById(slots[6]).value) > parseInt(document.getElementById(slots[13]).value)) {
+			alert("Congratulations, Player 1! You win!");
+		}
+		else if (parseInt(document.getElementById(slots[13]).value) > parseInt(document.getElementById(slots[6]).value)) {
+			alert("Congratulations, Player 2! You win!");
+		}
+		else if (parseInt(document.getElementById(slots[6]).value) === parseInt(document.getElementById(slots[13]).value)) {
+			alert("It's a tie!");
+		}
+		else {
+			alert("Error d0lq8");
+		}
 	}
 }
