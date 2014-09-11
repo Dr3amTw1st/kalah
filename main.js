@@ -1,15 +1,27 @@
 var a, b, c, d, e, f, p1, g, h, i, j, k, l, p2;
 var slots = ["a", "b", "c", "d", "e", "f", "p1", "g", "h", "i", "j", "k", "l", "p2"];
-var playerTurn = 1; // There are plans to make this random.
+var playerTurn = getRand(1,2);
+var logID = 0;
+
+function getRand(min,max) {
+	return Math.floor((Math.random() * max) + min);
+}
+
+function writeToLog(writeMe) {
+	logID++;
+	document.getElementById("log").innerHTML += logID + ". " + writeMe + "<br>";
+}
 
 function initialize() {
 	a=4, b=4, c=4, d=4, e=4, f=4, p1=0, g=4, h=4, i=4, j=4, k=4, l=4, p2=0;
 	
 	if (playerTurn === 1) {
 		document.getElementById("p1Turn").style.color = "#ffcc00";
+		writeToLog("Player 1 wins the coin toss!");
 	}
 	else {
 		document.getElementById("p2Turn").style.color = "#ffcc00";
+		writeToLog("Player 2 wins the coin toss!");
 	}
 	
 	document.getElementById("a").value = a;
@@ -78,15 +90,16 @@ function distribute(clickedSlot, pebbles) {
 		
 		// Captures?
 		if (parseInt(document.getElementById(slots[lastSlot]).value) === 1 && checkSlotOwner() && checkAdjacent()) {
-			alert("Capture!");
 			opponentPebbles = document.getElementById(slots[adjacent]).value;
 			document.getElementById(slots[lastSlot]).value = 0;
 			document.getElementById(slots[adjacent]).value = 0;
 			if (playerTurn === 1) {
 				document.getElementById(slots[6]).value = parseInt(document.getElementById(slots[6]).value) + parseInt(opponentPebbles) + 1;
+				writeToLog("Player 1 got a capture.");
 			}
 			else if (playerTurn === 2) {
 				document.getElementById(slots[13]).value = parseInt(document.getElementById(slots[13]).value) + parseInt(opponentPebbles) + 1;
+				writeToLog("Player 2 got a capture.");
 			}
 			else {
 				console.log("Error qd412");
@@ -96,9 +109,11 @@ function distribute(clickedSlot, pebbles) {
 		// Extra Turn?
 		if (playerTurn === 1 && lastSlot === 6) {
 			playerTurn = 1;
+			writeToLog("Player 1 got another turn.");
 		}
 		else if (playerTurn === 2 && lastSlot === 13) {
 			playerTurn = 2;
+			writeToLog("Player 2 got another turn.");
 		}
 		else {
 			updateTurn();

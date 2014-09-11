@@ -1,5 +1,3 @@
-/*test*/
-
 body {
 	text-align: center;
 	min-width: 650px;
@@ -19,8 +17,8 @@ body {
 	font-size: 35px;
 	background-color: #ffcc00;
 	border: 1px solid #ffcc00;
-	-webkit-border-radius:10px;
-	-webkit-box-shadow:inset 1px 1px 1px #ffffff;
+	-webkit-border-radius: 10px;
+	-webkit-box-shadow: inset 1px 1px 1px #ffffff;
 	cursor: pointer;
 	width: 75px;
 	height: 75px;
@@ -38,8 +36,8 @@ body {
 	font-size: 35px;
 	background-color: #ffcc00;
 	border: 1px solid #ffcc00;
-	-webkit-border-radius:10px;
-	-webkit-box-shadow:inset 1px 1px 1px #ffffff;
+	-webkit-border-radius: 10px;
+	-webkit-box-shadow: inset 1px 1px 1px #ffffff;
 	width: 75px;
 	height: 150px;
 }
@@ -48,7 +46,7 @@ body {
 	outline: 0;
 }
 
-.wrapper {
+.turns {
 	margin: 0 auto;
 	width: 300px;
 }
@@ -62,10 +60,15 @@ body {
 	display: inline;
 }
 
-#p1Turn {
-	float: left;
-}
+#p1Turn {float: left; /*background-image: url("blue.jpg");*/}
+#p2Turn {float: right; /*background-image: url("red.jpg");*/}
 
-#p2Turn {
-	float: right;
+
+#log {
+	background-color: #bdbdbd;
+	width: 650px;
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
+	top: 100px;
 }

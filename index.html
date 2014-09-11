@@ -9,30 +9,34 @@
 </head>
 
 <body onload="initialize();">
-		<table class="gameBoard">
-			<tr>
-				<td rowspan="2"><input class="scoreBtn" id="p2" type="button" value=":("></th>
-				<td><input class="rowBtn" id="l" type="button" value=":(" onclick="distribute('l', this.value);"></td>
-				<td><input class="rowBtn" id="k" type="button" value=":(" onclick="distribute('k', this.value);"></td>
-				<td><input class="rowBtn" id="j" type="button" value=":(" onclick="distribute('j', this.value);"></td>
-				<td><input class="rowBtn" id="i" type="button" value=":(" onclick="distribute('i', this.value);"></td>
-				<td><input class="rowBtn" id="h" type="button" value=":(" onclick="distribute('h', this.value);"></td>
-				<td><input class="rowBtn" id="g" type="button" value=":(" onclick="distribute('g', this.value);"></td>
-				<td rowspan="2"><input class="scoreBtn" id="p1" type="button" value=":("></th>
-			</tr>
-			<tr>
-				<td><input class="rowBtn" id="a" type="button" value=":(" onclick="distribute('a', this.value);"></td>
-				<td><input class="rowBtn" id="b" type="button" value=":(" onclick="distribute('b', this.value);"></td>
-				<td><input class="rowBtn" id="c" type="button" value=":(" onclick="distribute('c', this.value);"></td>
-				<td><input class="rowBtn" id="d" type="button" value=":(" onclick="distribute('d', this.value);"></td>
-				<td><input class="rowBtn" id="e" type="button" value=":(" onclick="distribute('e', this.value);"></td>
-				<td><input class="rowBtn" id="f" type="button" value=":(" onclick="distribute('f', this.value);"></td>
-			</tr>
-		</table>
+	<table class="gameBoard">
+		<tr>
+			<td rowspan="2"><input class="scoreBtn" id="p2" type="button" value=":("></th>
+			<td><input class="rowBtn" id="l" type="button" value=":(" onclick="distribute('l', this.value);"></td>
+			<td><input class="rowBtn" id="k" type="button" value=":(" onclick="distribute('k', this.value);"></td>
+			<td><input class="rowBtn" id="j" type="button" value=":(" onclick="distribute('j', this.value);"></td>
+			<td><input class="rowBtn" id="i" type="button" value=":(" onclick="distribute('i', this.value);"></td>
+			<td><input class="rowBtn" id="h" type="button" value=":(" onclick="distribute('h', this.value);"></td>
+			<td><input class="rowBtn" id="g" type="button" value=":(" onclick="distribute('g', this.value);"></td>
+			<td rowspan="2"><input class="scoreBtn" id="p1" type="button" value=":("></th>
+		</tr>
+		<tr>
+			<td><input class="rowBtn" id="a" type="button" value=":(" onclick="distribute('a', this.value);"></td>
+			<td><input class="rowBtn" id="b" type="button" value=":(" onclick="distribute('b', this.value);"></td>
+			<td><input class="rowBtn" id="c" type="button" value=":(" onclick="distribute('c', this.value);"></td>
+			<td><input class="rowBtn" id="d" type="button" value=":(" onclick="distribute('d', this.value);"></td>
+			<td><input class="rowBtn" id="e" type="button" value=":(" onclick="distribute('e', this.value);"></td>
+			<td><input class="rowBtn" id="f" type="button" value=":(" onclick="distribute('f', this.value);"></td>
+		</tr>
+	</table>
 		
-	<div class="wrapper">
+	<div class="turns">
 		<div class="turnIndicator" id="p1Turn">1</div>
 		<div class="turnIndicator" id="p2Turn">2</div>
+	</div>
+	
+	<div id="log">
+		<p>Game Log</p>
 	</div>
 </body>
 
